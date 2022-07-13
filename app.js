@@ -1,0 +1,76 @@
+const express = require('express')
+const app = express()
+const port = 3000
+
+//untuk halaman index
+app.get('/', (req, res) => {
+    res.sendFile('./index.html',{root:__dirname})
+})
+
+//untuk halaman about
+app.get('/about', (req, res) => {
+    res.sendFile('./about.html',{root:__dirname})
+})
+
+//untuk halaman contact
+app.get('/contact', (req, res) => {
+    res.sendFile('./contact.html',{root:__dirname})
+})
+
+
+app.get('/product/:id', (req, res) => {
+    // res.send('product id: ' + req.params.id + '<br></br>'
+    // + 'category id : ' + req.params.idCat)
+    res.send(`product id: ${req.params.id} <br> category id : ${ req.query.category}`)
+})
+
+app.use('/', (req, res) => {
+  res.status(404)
+  res.send('Not found')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+
+
+// const fs   = require('fs');
+// const http = require('http')
+// const port = 3000
+
+// //fungsi untuk membuka suatu file
+// const openFile = (path,res) => {
+//     fs.readFile(path,(err,data)=>{
+//         if (err) {
+//             res.writeHead(404)
+//             res.write('Error : page not found')          
+//         }else{
+//             res.write(data)
+//         }
+//         res.end()
+//     })
+// }
+
+// http
+//     .createServer((req,res)=>{
+//         const url = req.url
+//         console.log(url);
+//         res.writeHead(200,{
+//             'Content-Type':'text/html'
+//         }) 
+       
+//         if (url==='/about') {
+//             //Membuka file html about 
+//             openFile('./about.html',res)
+//         }else if (url==='/contact') {
+//              //Membuka file html contact
+//             openFile('./contact.html',res)
+//         }else {
+//              //Membuka file html index jika url yang dicari tidak ada 
+//             openFile('./index.html',res)
+//         }
+
+// })
+//     .listen(3000,()=>{
+//         console.log('Server is listening on port 3000');
+//     })
