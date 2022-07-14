@@ -8,9 +8,28 @@ app.set('view engine','ejs')
 //untuk halaman index
 app.get('/', (req, res) => {
   // const name = req.query.nama
-  const name = "Eldra Surya P"
-
-    res.render('index',{name:name})
+  // const name = "Eldra Surya P"
+  cont = [
+    {
+      name :'ESP',
+      email:'esp@gmail.com',
+    },
+    {
+      name :'eldra',
+      email:'eldra@gmail.com',
+    },
+    {
+      name :'surya',
+      email:'surya@gmail.com',
+    },
+  ]
+  //mengirimkan data ke index
+  res.render('index',
+  {
+    nama:'Eldra Surya P',
+    title:'WebServer EJS',
+    cont,
+  })
 })
 
 //untuk halaman about
