@@ -19,15 +19,15 @@
     <h3>Contact List</h3>
     <% if (cont.length==0) { %>
         <b>Contact kosong</b>
-    <% } %>
-       
-    <% cont.forEach( (con,index) => { %>
-        <ul>
-            <i>Kontak ke - <%= index+1 %></i>
-            <li>Nama :<%= con.name %> </li>
-            <li>Email:<%= con.email %> </li>
-        </ul>
-    <% }) %>
+    <% }else{ %>  
+        <% cont.forEach( (con,index) => { %>
+            <ul>
+                <i>Kontak ke - <%= index+1 %></i>
+                <li>Nama :<%= con.name %> </li>
+                <li>Email:<%= con.email %> </li>
+            </ul>
+        <% }) %>
+    <% } %> 
     
     
 </body>
