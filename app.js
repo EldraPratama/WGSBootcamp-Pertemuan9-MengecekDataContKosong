@@ -2,9 +2,15 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+//menggunakan ejs
+app.set('view engine','ejs')
+
 //untuk halaman index
 app.get('/', (req, res) => {
-    res.sendFile('./index.html',{root:__dirname})
+  // const name = req.query.nama
+  const name = "Eldra Surya P"
+
+    res.render('index',{name:name})
 })
 
 //untuk halaman about
@@ -17,7 +23,6 @@ app.get('/contact', (req, res) => {
     res.sendFile('./contact.html',{root:__dirname})
 })
 
-
 app.get('/product/:id', (req, res) => {
     // res.send('product id: ' + req.params.id + '<br></br>'
     // + 'category id : ' + req.params.idCat)
@@ -28,6 +33,11 @@ app.use('/', (req, res) => {
   res.status(404)
   res.send('Not found')
 })
+
+// app.use((req, res, next) => {
+//   console.log('Time:', Date.now())
+//   next()
+// })
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
