@@ -10,18 +10,18 @@ app.get('/', (req, res) => {
   // const name = req.query.nama
   // const name = "Eldra Surya P"
   cont = [
-    {
-      name :'ESP',
-      email:'esp@gmail.com',
-    },
-    {
-      name :'eldra',
-      email:'eldra@gmail.com',
-    },
-    {
-      name :'surya',
-      email:'surya@gmail.com',
-    },
+    // {
+    //   name :'ESP',
+    //   email:'esp@gmail.com',
+    // },
+    // {
+    //   name :'eldra',
+    //   email:'eldra@gmail.com',
+    // },
+    // {
+    //   name :'surya',
+    //   email:'surya@gmail.com',
+    // },
   ]
   //mengirimkan data ke index
   res.render('index',
